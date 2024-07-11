@@ -1,0 +1,10 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t axteb/docker-react -f Dockerfile.dev .
+
+script:
+  - docer run -e CI=true axteb/docker-react npm run test
+
